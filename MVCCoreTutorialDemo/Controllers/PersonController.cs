@@ -10,6 +10,7 @@ namespace MVCCoreTutorialDemo.Controllers
     {
         public IActionResult Index()
         {
+            ViewBag.greeting = "hello Joynal";
             return View();
         }
     }
