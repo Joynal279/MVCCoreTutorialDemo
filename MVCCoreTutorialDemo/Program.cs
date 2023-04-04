@@ -20,9 +20,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+//Index method of home controller will be executed first thing in this application
+//it is default url
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Person}/{action=Index}/{id?}");
 
 app.Run();
 
