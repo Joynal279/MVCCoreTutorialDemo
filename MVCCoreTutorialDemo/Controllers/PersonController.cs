@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using MVCCoreTutorialDemo.Models.Domain;
 
 namespace MVCCoreTutorialDemo.Controllers
 {
@@ -22,7 +23,14 @@ namespace MVCCoreTutorialDemo.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult AddPerson()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult AddPerson(Person person)
         {
             return View();
         }
