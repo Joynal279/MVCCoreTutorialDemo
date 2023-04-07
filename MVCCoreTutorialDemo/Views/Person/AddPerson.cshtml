@@ -1,7 +1,24 @@
-﻿
+﻿@model MVCCoreTutorialDemo.Models.Domain.Person
 @{
 
     Layout = "_Layout";
 }
 
-<h2>AddPerson method called</h2>
+<div class="mt-2" style="width: 50%">
+    <h2>Add Person</h2>
+    <form asp-action="AddPerson">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" type="text" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="Email" class="form-label">Email</label>
+            <input asp-for="Email" type="text" class="form-control">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <a href="", class="btn btn-primary">All Persons</a>
+    </form>
+</div>
+
