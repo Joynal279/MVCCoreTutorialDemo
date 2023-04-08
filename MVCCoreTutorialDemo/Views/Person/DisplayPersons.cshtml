@@ -26,8 +26,8 @@
                             @person.Email
                         </td>
                         <td>
-                            <a>Edit</a>
-                            <a>Delete</a>
+                            <a class="btn btn-success" href="/Person/EditPerson?id=@person.Id">Edit</a>
+                            <a class="btn btn-danger" href="/Person/DeletePerson?id=@person.Id">Delete</a>
                         </td>
                     </tr>
                 }

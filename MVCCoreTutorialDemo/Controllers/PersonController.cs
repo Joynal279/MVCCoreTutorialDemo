@@ -46,7 +46,7 @@ namespace MVCCoreTutorialDemo.Controllers
 
             try
             {
-                _ctx.Add(person);
+                _ctx.person.Add(person);
                 _ctx.SaveChanges();
                 TempData["msg"] = "Added successfully";
                 return RedirectToAction("AddPerson");
@@ -65,6 +65,57 @@ namespace MVCCoreTutorialDemo.Controllers
         {
             var persons = _ctx.person.ToList();
             return View(persons);
+        }
+
+        public IActionResult EditPerson(int id)
+        {
+            var person = _ctx.person.Find(id);
+            return View(person);
+        }
+
+        [HttpPost]
+        public IActionResult EditPerson(Person person)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            try
+            {
+                _ctx.person.Update(person);
+                _ctx.SaveChanges();
+                TempData["msg"] = "Update successfully";
+                return RedirectToAction("DisplayPersons");
+
+            }
+            catch (Exception ex)
+            {
+                TempData["msg"] = "Couldn't Updated";
+                return View();
+            }
+        }
+
+        public IActionResult DeletePerson(int id)
+        {
+            
+            {
+                var person = _ctx.person.Find(id);
+                if (person != null)
+                {
+                    _ctx.person.Remove(person);
+                    _ctx.SaveChanges();
+                }
+            }
+            try
+            {
+                
+            }
+            catch(Exception ex)
+            {
+                
+            }
+            return RedirectToAction("DisplayPersons");
         }
     }
 }
